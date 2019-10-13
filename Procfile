@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* MegustaApplication
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.project.megusta.MegustaApplication
