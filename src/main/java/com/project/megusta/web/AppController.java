@@ -6,6 +6,7 @@ import com.project.megusta.domain.ContainsRepository;
 import com.project.megusta.domain.Ingredient;
 import com.project.megusta.domain.IngredientRepository;
 import com.project.megusta.domain.RecipeRepository;
+import com.project.megusta.domain.UnitRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,9 @@ public class AppController {
 
     @Autowired
     private IngredientRepository ingredientRepository;
+
+    @Autowired
+    private UnitRepository unitRepository;
 
     @RequestMapping(value = "/api", method = RequestMethod.GET)
     public @ResponseBody List<Ingredient> ingredientRest() {
