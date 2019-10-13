@@ -23,6 +23,15 @@ public class Recipe {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private List<Contains> ingredients;
 
+    public Recipe() {
+
+    }
+
+    public Recipe(String name, List<Contains> content) {
+        this.name = name;
+        this.ingredients = content;
+    }
+
     /**
      * @return the recipeId
      */
@@ -58,6 +67,10 @@ public class Recipe {
         this.ingredients = ingredients;
     }
 
+    public void addIngredient(Contains content) {
+        this.ingredients.add(content);
+    }
+
     /**
      * @param name the name to set
      */
@@ -67,7 +80,8 @@ public class Recipe {
 
     @Override
     public boolean equals(Object obj) {
-        return recipeId.equals(((Recipe) obj).recipeId) && name.equals(((Recipe) obj).name);
+        return obj.getClass().equals(this.getClass()) && recipeId.equals(((Recipe) obj).recipeId)
+                && name.equals(((Recipe) obj).name);
     }
 
     @Override
