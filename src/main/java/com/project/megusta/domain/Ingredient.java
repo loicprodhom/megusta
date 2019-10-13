@@ -23,6 +23,14 @@ public class Ingredient {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ingredient")
     private List<Contains> recipes;
 
+    public Ingredient() {
+
+    }
+
+    public Ingredient(String name) {
+        this.name = name;
+    }
+
     /**
      * @return the ingredientId
      */
@@ -67,7 +75,8 @@ public class Ingredient {
 
     @Override
     public boolean equals(Object obj) {
-        return ingredientId.equals(((Ingredient) obj).ingredientId) && name.equals(((Ingredient) obj).name);
+        return obj.getClass().equals(this.getClass()) && ingredientId.equals(((Ingredient) obj).ingredientId)
+                && name.equals(((Ingredient) obj).name);
     }
 
     @Override

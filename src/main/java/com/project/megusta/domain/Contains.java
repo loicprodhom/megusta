@@ -26,4 +26,85 @@ public class Contains {
     @ManyToOne
     @JoinColumn(name = "unit_id")
     private Unit unit;
+
+    /**
+     * @return the containsId
+     */
+    public ContainsKey getContainsId() {
+        return containsId;
+    }
+
+    /**
+     * @return the ingredient
+     */
+    public Ingredient getIngredient() {
+        return ingredient;
+    }
+
+    /**
+     * @return the quantity
+     */
+    public double getQuantity() {
+        return quantity;
+    }
+
+    /**
+     * @return the recipe
+     */
+    public Recipe getRecipe() {
+        return recipe;
+    }
+
+    /**
+     * @return the unit
+     */
+    public Unit getUnit() {
+        return unit;
+    }
+
+    /**
+     * @param containsId the containsId to set
+     */
+    public void setContainsId(ContainsKey containsId) {
+        this.containsId = containsId;
+    }
+
+    /**
+     * @param ingredient the ingredient to set
+     */
+    public void setIngredient(Ingredient ingredient) {
+        this.ingredient = ingredient;
+    }
+
+    /**
+     * @param quantity the quantity to set
+     */
+    public void setQuantity(double quantity) {
+        this.quantity = quantity;
+    }
+
+    /**
+     * @param recipe the recipe to set
+     */
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
+    }
+
+    /**
+     * @param unit the unit to set
+     */
+    public void setUnit(Unit unit) {
+        this.unit = unit;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj.getClass().equals(this.getClass()) && ingredient.equals(((Contains) obj).ingredient)
+                && recipe.equals(((Contains) obj).recipe);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }

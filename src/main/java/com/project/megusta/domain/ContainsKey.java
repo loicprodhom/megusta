@@ -4,9 +4,13 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Transient;
 
 @Embeddable
 public class ContainsKey implements Serializable {
+    @Transient
+    private static final long serialVersionUID = 1L;
+
     @Column(name = "recipe_id")
     private Long recipeId;
 
@@ -43,7 +47,8 @@ public class ContainsKey implements Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        return ingredientId.equals(((ContainsKey) obj).ingredientId) && recipeId.equals(((ContainsKey) obj).recipeId);
+        return obj.getClass().equals(this.getClass()) && ingredientId.equals(((ContainsKey) obj).ingredientId)
+                && recipeId.equals(((ContainsKey) obj).recipeId);
     }
 
     @Override
