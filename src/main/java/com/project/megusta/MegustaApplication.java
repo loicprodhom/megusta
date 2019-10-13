@@ -9,10 +9,17 @@ import com.project.megusta.tools.MeGustaTools;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class MegustaApplication {
+public class MegustaApplication extends SpringBootServletInitializer {
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(MegustaApplication.class);
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(MegustaApplication.class, args);
