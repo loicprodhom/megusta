@@ -14,11 +14,13 @@ public class Contains {
     private ContainsKey containsId;
 
     @ManyToOne
+    @JsonIgnore
     @MapsId("ingredient_id")
     @JoinColumn(name = "ingredient_id")
     private Ingredient ingredient;
 
     @ManyToOne
+    @JsonIgnore
     @MapsId("recipe_id")
     @JoinColumn(name = "recipe_id")
     private Recipe recipe;
