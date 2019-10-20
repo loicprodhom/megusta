@@ -17,7 +17,8 @@ public class MeGustaTools {
         unitRepository.save(new Unit("Centilitre", "cL"));
         unitRepository.save(new Unit("Millilitre", "mL"));
         unitRepository.save(new Unit("Kilogram", "Kg"));
-        unitRepository.save(new Unit("Gram", "g"));
+        Unit gram = new Unit("Gram", "g");
+        unitRepository.save(gram);
         Unit teaspoon = new Unit("Teaspoon", "tsp");
         unitRepository.save(teaspoon);
         unitRepository.save(new Unit("Tablespoon", "tbsp"));
@@ -32,7 +33,8 @@ public class MeGustaTools {
         ingredientRepository.save(new Ingredient("Egg"));
         Ingredient pesto = new Ingredient("Pesto");
         ingredientRepository.save(pesto);
-        ingredientRepository.save(new Ingredient("Spaghetti"));
+        Ingredient spaghetti = new Ingredient("Spaghetti");
+        ingredientRepository.save(spaghetti);
 
         // Persisting the recipe "Pesto Pasta"
         Recipe pestoPasta = new Recipe("Pesto Pasta");
@@ -40,8 +42,7 @@ public class MeGustaTools {
         List<Contains> contents = new ArrayList<Contains>();
         Contains pestoContent = new Contains(pesto, pestoPasta, 6.0, teaspoon);
         contents.add(pestoContent);
-        Contains pastaContent = new Contains((Ingredient) ingredientRepository.findByName("Spaghetti"),
-                (Recipe) recipeRepository.findByName("Pesto Pasta"), 500, (Unit) unitRepository.findByName("Gram"));
+        Contains pastaContent = new Contains(spaghetti, pestoPasta, 500, gram);
         contents.add(pastaContent);
         pestoPasta.setIngredients(contents);
         recipeRepository.save(pestoPasta);
