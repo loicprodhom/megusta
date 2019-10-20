@@ -33,8 +33,9 @@ public class AppController {
         return "index";
     }
 
-    @RequestMapping(value = "/api", method = RequestMethod.GET)
-    public @ResponseBody List<Ingredient> ingredientRest() {
-        return (List<Ingredient>) ingredientRepository.findAll();
-    }
+    /*
+     * @RequestMapping(value = "/api", method = RequestMethod.GET)
+     * public @ResponseBody List<Ingredient> ingredientRest() { return
+     * (List<Ingredient>) ingredientRepository.findAll(); }
+     */
 }
