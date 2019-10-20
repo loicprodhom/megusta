@@ -1,5 +1,6 @@
 package com.project.megusta.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -29,6 +30,7 @@ public class Recipe {
 
     public Recipe(String name) {
         this.name = name;
+        this.ingredients = new ArrayList<Contains>();
     }
 
     public Recipe(String name, List<Contains> content) {

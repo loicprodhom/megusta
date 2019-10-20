@@ -17,6 +17,15 @@ public class ContainsKey implements Serializable {
     @Column(name = "ingredient_id")
     private Long ingredientId;
 
+    public ContainsKey() {
+
+    }
+
+    public ContainsKey(Long recipeId, Long ingredientId) {
+        this.recipeId = recipeId;
+        this.ingredientId = ingredientId;
+    }
+
     /**
      * @return the ingredientId
      */
