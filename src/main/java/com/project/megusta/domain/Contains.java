@@ -6,6 +6,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Contains {
     @EmbeddedId
@@ -24,6 +26,7 @@ public class Contains {
     private double quantity;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "unit_id")
     private Unit unit;
 

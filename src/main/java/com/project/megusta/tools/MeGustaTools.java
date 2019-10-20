@@ -5,6 +5,9 @@ import com.project.megusta.domain.*;
 public class MeGustaTools {
     public static void initializeEnvironment(IngredientRepository ingredientRepository,
             RecipeRepository recipeRepository, ContainsRepository containsRepository, UnitRepository unitRepository) {
+        unitRepository.deleteAll();
+        ingredientRepository.deleteAll();
+
         unitRepository.save(new Unit("Litre", "L"));
         unitRepository.save(new Unit("Centilitre", "cL"));
         unitRepository.save(new Unit("Millilitre", "mL"));
