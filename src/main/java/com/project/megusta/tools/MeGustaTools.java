@@ -37,8 +37,9 @@ public class MeGustaTools {
         Recipe pestoPasta = new Recipe("Pesto Pasta");
         recipeRepository.save(pestoPasta);
         List<Contains> contents = new ArrayList<Contains>();
-        Contains pestoContent = new Contains(pesto, pestoPasta, 6, (Unit) unitRepository.findByName("Teaspoon"));
-        contents.add(pestoContent);
+        // Contains pestoContent = new Contains(pesto, pestoPasta, 6, (Unit)
+        // unitRepository.findByName("Teaspoon"));
+        // contents.add(pestoContent);
         // Contains pastaContent = new
         // Contains((Ingredient) ingredientRepository.findByName("Spaghetti"), (Recipe)
         // recipeRepository.findByName("Pesto Pasta"), 500, (Unit)
