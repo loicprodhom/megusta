@@ -27,6 +27,10 @@ public class Recipe {
 
     }
 
+    public Recipe(String name) {
+        this.name = name;
+    }
+
     public Recipe(String name, List<Contains> content) {
         this.name = name;
         this.ingredients = content;
