@@ -1,27 +1,29 @@
 package com.project.megusta.domain;
 
-import javax.persistence.EmbeddedId;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Contains {
-    @EmbeddedId
-    private ContainsKey containsId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "contains_id")
+    private Long containsId;
 
     @ManyToOne
     @JsonIgnore
-    @MapsId("ingredient_id")
     @JoinColumn(name = "ingredient_id")
     private Ingredient ingredient;
 
     @ManyToOne
     @JsonIgnore
-    @MapsId("recipe_id")
     @JoinColumn(name = "recipe_id")
     private Recipe recipe;
 
@@ -46,7 +48,7 @@ public class Contains {
     /**
      * @return the containsId
      */
-    public ContainsKey getContainsId() {
+    public Long getContainsId() {
         return containsId;
     }
 
@@ -81,7 +83,7 @@ public class Contains {
     /**
      * @param containsId the containsId to set
      */
-    public void setContainsId(ContainsKey containsId) {
+    public void setContainsId(Long containsId) {
         this.containsId = containsId;
     }
 
