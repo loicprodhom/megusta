@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Recipe {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "recipe_id")
     private Long recipeId;
 
