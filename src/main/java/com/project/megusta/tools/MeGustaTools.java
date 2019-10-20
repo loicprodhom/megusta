@@ -10,6 +10,8 @@ public class MeGustaTools {
             RecipeRepository recipeRepository, ContainsRepository containsRepository, UnitRepository unitRepository) {
         unitRepository.deleteAll();
         ingredientRepository.deleteAll();
+        recipeRepository.deleteAll();
+        containsRepository.deleteAll();
 
         unitRepository.save(new Unit("Litre", "L"));
         unitRepository.save(new Unit("Centilitre", "cL"));
@@ -31,11 +33,14 @@ public class MeGustaTools {
         ingredientRepository.save(new Ingredient("Spaghetti"));
 
         Recipe pestoPasta = new Recipe("Pesto Pasta");
+        recipeRepository.save(pestoPasta);
         List<Contains> contents = new ArrayList<Contains>();
-        contents.add(new Contains((Ingredient) ingredientRepository.findByName("Pesto"), pestoPasta, 6,
-                (Unit) unitRepository.findByName("Teaspoon")));
-        contents.add(new Contains((Ingredient) ingredientRepository.findByName("Spaghetti"), pestoPasta, 500,
-                (Unit) unitRepository.findByName("Gram")));
+        Contains pestoContent = new Contains((Ingredient) ingredientRepository.findByName("Pesto"), pestoPasta, 6,
+                (Unit) unitRepository.findByName("Teaspoon"));
+        contents.add(pestoContent);
+        Contains pastaContent = new Contains((Ingredient) ingredientRepository.findByName("Spaghetti"), pestoPasta, 500,
+                (Unit) unitRepository.findByName("Gram"));
+        contents.add(pastaContent);
         pestoPasta.setIngredients(contents);
         recipeRepository.save(pestoPasta);
 
