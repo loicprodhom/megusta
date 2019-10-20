@@ -30,6 +30,17 @@ public class Contains {
     @JoinColumn(name = "unit_id")
     private Unit unit;
 
+    public Contains() {
+
+    }
+
+    public Contains(Ingredient ingredient, Recipe recipe, double quantity, Unit unit) {
+        this.ingredient = ingredient;
+        this.recipe = recipe;
+        this.quantity = quantity;
+        this.unit = unit;
+    }
+
     /**
      * @return the containsId
      */
