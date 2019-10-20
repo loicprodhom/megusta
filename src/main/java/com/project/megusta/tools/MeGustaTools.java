@@ -29,16 +29,16 @@ public class MeGustaTools {
         ingredientRepository.save(new Ingredient("Onion"));
         ingredientRepository.save(new Ingredient("Milk"));
         ingredientRepository.save(new Ingredient("Egg"));
-        ingredientRepository.save(new Ingredient("Pesto"));
+        Ingredient pesto = new Ingredient("Pesto");
+        ingredientRepository.save(pesto);
         ingredientRepository.save(new Ingredient("Spaghetti"));
 
         // Persisting the recipe "Pesto Pasta"
         Recipe pestoPasta = new Recipe("Pesto Pasta");
         recipeRepository.save(pestoPasta);
         List<Contains> contents = new ArrayList<Contains>();
-        Contains pestoContent = new Contains((Ingredient) ingredientRepository.findByName("Pesto"),
-                (Recipe) recipeRepository.findByName("Pesto Pasta"), 6, (Unit) unitRepository.findByName("Teaspoon"));
-        // contents.add(pestoContent);
+        Contains pestoContent = new Contains(pesto, pestoPasta, 6, (Unit) unitRepository.findByName("Teaspoon"));
+        contents.add(pestoContent);
         containsRepository.save(pestoContent);
         // Contains pastaContent = new
         // Contains((Ingredient) ingredientRepository.findByName("Spaghetti"), (Recipe)
