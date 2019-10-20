@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Unit {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "unit_id")
     private Long unitId;
 
