@@ -28,6 +28,11 @@ public class AppController {
     @Autowired
     private UnitRepository unitRepository;
 
+    @RequestMapping(value = "/")
+    public String homePage() {
+        return "index";
+    }
+
     @RequestMapping(value = "/api", method = RequestMethod.GET)
     public @ResponseBody List<Ingredient> ingredientRest() {
         return (List<Ingredient>) ingredientRepository.findAll();
