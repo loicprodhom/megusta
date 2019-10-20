@@ -46,7 +46,7 @@ public class MeGustaTools {
         // unitRepository.findByName("Gram")); contents.add(pastaContent);
         // containsRepository.save(pastaContent); pestoPasta.setIngredients(contents);
         pestoPasta.setIngredients(contents);
-        // recipeRepository.save(pestoPasta);
+        recipeRepository.save(pestoPasta);
 
     }
 }
