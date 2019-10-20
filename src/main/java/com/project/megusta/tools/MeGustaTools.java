@@ -40,6 +40,8 @@ public class MeGustaTools {
         Recipe pestoPasta = new Recipe("Pesto Pasta");
         recipeRepository.save(pestoPasta);
         List<Contains> contents = new ArrayList<Contains>();
+        // !! using the respective repository's findByName method in command line runner
+        // raises WARNING: An illegal reflective access operation has occurred
         Contains pestoContent = new Contains(pesto, pestoPasta, 6.0, teaspoon);
         contents.add(pestoContent);
         Contains pastaContent = new Contains(spaghetti, pestoPasta, 500, gram);
