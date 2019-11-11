@@ -5,6 +5,7 @@ import java.util.List;
 import com.project.megusta.domain.ContainsRepository;
 import com.project.megusta.domain.Ingredient;
 import com.project.megusta.domain.IngredientRepository;
+import com.project.megusta.domain.Recipe;
 import com.project.megusta.domain.RecipeRepository;
 import com.project.megusta.domain.UnitRepository;
 
@@ -31,6 +32,11 @@ public class AppController {
     @RequestMapping(value = "/")
     public String homePage() {
         return "index";
+    }
+
+    @RequestMapping(value = "/recipetest")
+    public @ResponseBody List<Recipe> findAllRecipes() {
+        return (List<Recipe>) recipeRepository.findAll();
     }
 
     /*
