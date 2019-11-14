@@ -22,5 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      *
      * https://medium.com/better-programming/secure-a-spring-boot-rest-api-with-json
      * -web-token-reference-to-angular-integration-e57a25806c50
+     *
+     * look into Cors https://spring.io/guides/gs/rest-service-cors/
      */
 }
