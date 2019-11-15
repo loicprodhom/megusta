@@ -21,6 +21,9 @@ public class Recipe {
     @Column(name = "recipe_name")
     private String name;
 
+    @Column(name = "recipe_description")
+    private String description;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private List<Contains> ingredients;
 
@@ -30,6 +33,12 @@ public class Recipe {
 
     public Recipe(String name) {
         this.name = name;
+        this.ingredients = new ArrayList<Contains>();
+    }
+
+    public Recipe(String name, String description) {
+        this.name = name;
+        this.description = description;
         this.ingredients = new ArrayList<Contains>();
     }
 
@@ -60,6 +69,13 @@ public class Recipe {
     }
 
     /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
      * @param recipeId the recipeId to set
      */
     public void setRecipeId(Long recipeId) {
@@ -82,6 +98,13 @@ public class Recipe {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
