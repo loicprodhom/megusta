@@ -3,15 +3,14 @@ package com.project.megusta.web;
 import java.util.List;
 
 import com.project.megusta.domain.ContainsRepository;
-import com.project.megusta.domain.Ingredient;
 import com.project.megusta.domain.IngredientRepository;
+import com.project.megusta.domain.Recipe;
 import com.project.megusta.domain.RecipeRepository;
 import com.project.megusta.domain.UnitRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -31,6 +30,11 @@ public class AppController {
     @RequestMapping(value = "/")
     public String homePage() {
         return "index";
+    }
+
+    @RequestMapping(value = "/recipetest")
+    public @ResponseBody List<Recipe> findAllRecipes() {
+        return (List<Recipe>) recipeRepository.findAll();
     }
 
     /*

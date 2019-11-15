@@ -25,7 +25,7 @@ public class Recipe {
     private List<Contains> ingredients;
 
     public Recipe() {
-
+        ingredients = new ArrayList<Contains>();
     }
 
     public Recipe(String name) {
@@ -93,5 +93,9 @@ public class Recipe {
     @Override
     public int hashCode() {
         return super.hashCode();
+    }
+
+    public void addContent(Ingredient ingredient, double quantity, Unit unit) {
+        this.ingredients.add(new Contains(ingredient, this, quantity, unit));
     }
 }

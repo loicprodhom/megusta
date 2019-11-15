@@ -13,7 +13,8 @@ public class MeGustaTools {
         recipeRepository.deleteAll();
         containsRepository.deleteAll();
 
-        unitRepository.save(new Unit("Litre", "L"));
+        Unit litre = new Unit("Litre", "L");
+        unitRepository.save(litre);
         unitRepository.save(new Unit("Centilitre", "cL"));
         unitRepository.save(new Unit("Millilitre", "mL"));
         unitRepository.save(new Unit("Kilogram", "Kg"));
@@ -21,33 +22,62 @@ public class MeGustaTools {
         unitRepository.save(gram);
         Unit teaspoon = new Unit("Teaspoon", "tsp");
         unitRepository.save(teaspoon);
-        unitRepository.save(new Unit("Tablespoon", "tbsp"));
-        unitRepository.save(new Unit("Cup", "c"));
-        unitRepository.save(new Unit("Unit", "piece(s)"));
+        Unit tablespoon = new Unit("Tablespoon", "tbsp");
+        unitRepository.save(tablespoon);
+        Unit cup = new Unit("Cup", "c");
+        unitRepository.save(cup);
+        Unit piece = new Unit("Piece", "");
+        unitRepository.save(piece);
 
-        ingredientRepository.save(new Ingredient("Garlic"));
-        ingredientRepository.save(new Ingredient("Salt"));
-        ingredientRepository.save(new Ingredient("Pepper"));
-        ingredientRepository.save(new Ingredient("Onion"));
-        ingredientRepository.save(new Ingredient("Milk"));
-        ingredientRepository.save(new Ingredient("Egg"));
+        Ingredient garlic = new Ingredient("Garlic");
+        Ingredient salt = new Ingredient("Salt");
+        Ingredient pepper = new Ingredient("Pepper");
         Ingredient pesto = new Ingredient("Pesto");
-        ingredientRepository.save(pesto);
+        Ingredient onion = new Ingredient("Onion");
+        Ingredient milk = new Ingredient("Milk");
+        Ingredient egg = new Ingredient("Egg");
         Ingredient spaghetti = new Ingredient("Spaghetti");
+        Ingredient pecorino = new Ingredient("Pecorino Romano");
+        Ingredient oliveOil = new Ingredient("Olive Oil");
+        Ingredient butter = new Ingredient("Butter");
+        Ingredient bacon = new Ingredient("Bacon");
+
+        ingredientRepository.save(garlic);
+        ingredientRepository.save(salt);
+        ingredientRepository.save(pepper);
+        ingredientRepository.save(pesto);
+        ingredientRepository.save(onion);
+        ingredientRepository.save(milk);
+        ingredientRepository.save(egg);
         ingredientRepository.save(spaghetti);
+        ingredientRepository.save(pecorino);
+        ingredientRepository.save(oliveOil);
+        ingredientRepository.save(butter);
+        ingredientRepository.save(bacon);
 
         // Persisting the recipe "Pesto Pasta"
         Recipe pestoPasta = new Recipe("Pesto Pasta");
         recipeRepository.save(pestoPasta);
-        List<Contains> contents = new ArrayList<Contains>();
         // !! using the respective repository's findByName method in command line runner
         // raises WARNING: An illegal reflective access operation has occurred
-        Contains pestoContent = new Contains(pesto, pestoPasta, 6.0, teaspoon);
-        contents.add(pestoContent);
-        Contains pastaContent = new Contains(spaghetti, pestoPasta, 500, gram);
-        contents.add(pastaContent);
-        pestoPasta.setIngredients(contents);
+        // using variables instead
+        pestoPasta.addContent(pesto, 6.0, teaspoon);
+        pestoPasta.addContent(spaghetti, 500, gram);
         recipeRepository.save(pestoPasta);
+
+        // Persisting the recipe "Spaghetti alla Carbonara"
+        Recipe carbonara = new Recipe("Spaghetti alla Carbonara");
+        recipeRepository.save(carbonara);
+        carbonara.addContent(egg, 6, piece);
+        carbonara.addContent(garlic, 2, piece);
+        carbonara.addContent(pepper, 50, gram);
+        carbonara.addContent(salt, 50, gram);
+        carbonara.addContent(bacon, 300, gram);
+        carbonara.addContent(pecorino, 200, gram);
+        carbonara.addContent(spaghetti, 500, gram);
+        carbonara.addContent(butter, 200, gram);
+
+        recipeRepository.save(carbonara);
 
     }
 }
