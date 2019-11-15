@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-@RepositoryRestResource(path = "api/recipecontents")
+@RepositoryRestResource(path = "recipecontents")
 public interface ContainsRepository extends CrudRepository<Contains, Long> {
     public List<Contains> findByIngredient(Ingredient ingredient);
 
