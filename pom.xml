@@ -103,9 +103,9 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>test</scope>
+  			<groupId>org.springframework.data</groupId>
+  			<artifactId>spring-data-rest-webmvc</artifactId>
+  			<version>3.2.1.RELEASE</version>
 		</dependency>
 	</dependencies>
 
