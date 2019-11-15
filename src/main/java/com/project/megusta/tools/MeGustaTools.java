@@ -56,8 +56,7 @@ public class MeGustaTools {
         ingredientRepository.save(bacon);
 
         // Persisting the recipe "Pesto Pasta"
-        Recipe pestoPasta = new Recipe("Pesto Pasta",
-                "Boil the pasta for about 7 minutes\nDrain the pasta when done\nAdd the pesto sauce");
+        Recipe pestoPasta = new Recipe("Pesto Pasta");
         recipeRepository.save(pestoPasta);
         // !! using the respective repository's findByName method in command line runner
         // raises WARNING: An illegal reflective access operation has occurred
@@ -67,14 +66,7 @@ public class MeGustaTools {
         recipeRepository.save(pestoPasta);
 
         // Persisting the recipe "Spaghetti alla Carbonara"
-        Recipe carbonara = new Recipe("Spaghetti alla Carbonara",
-                new StringBuilder().append("Mix 4 egg yolks, 2 whole eggs, salt, pepper and pecorino in a bowl\n")
-                        .append("Melt the butter in a hot pan, then add the crushed garlic and bacon\n")
-                        .append("Boil the pasta for about 6 minutes\n")
-                        .append("Cook the bacon to a crisp in salt and pepper\n")
-                        .append("Add the pasta in the pan with two tablespoons of pasta cooking water\n")
-                        .append("Mix for about a minute, then take the pan off the heat for a minute\n")
-                        .append("Pour the egg and pecorino sauce in the pan. Mix and serve.\n").toString());
+        Recipe carbonara = new Recipe("Spaghetti alla Carbonara");
         recipeRepository.save(carbonara);
         carbonara.addContent(egg, 6, piece);
         carbonara.addContent(garlic, 2, piece);
