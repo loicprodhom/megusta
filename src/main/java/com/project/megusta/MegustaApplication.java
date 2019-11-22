@@ -1,5 +1,6 @@
 package com.project.megusta;
 
+import com.project.megusta.business.CustomerRepository;
 import com.project.megusta.domain.ContainsRepository;
 import com.project.megusta.domain.IngredientRepository;
 import com.project.megusta.domain.RecipeRepository;
@@ -27,10 +28,11 @@ public class MegustaApplication extends SpringBootServletInitializer {
 
 	@Bean
 	public CommandLineRunner init(IngredientRepository ingredientRepository, RecipeRepository recipeRepository,
-			ContainsRepository containsRepository, UnitRepository unitRepository) {
+			ContainsRepository containsRepository, UnitRepository unitRepository,
+			CustomerRepository customerRepository) {
 		return (args) -> {
 			MeGustaTools.initializeEnvironment(ingredientRepository, recipeRepository, containsRepository,
-					unitRepository);
+					unitRepository, customerRepository);
 		};
 	}
 

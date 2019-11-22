@@ -1,17 +1,20 @@
 package com.project.megusta.tools;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.project.megusta.business.Customer;
+import com.project.megusta.business.CustomerRepository;
 import com.project.megusta.domain.*;
 
 public class MeGustaTools {
     public static void initializeEnvironment(IngredientRepository ingredientRepository,
-            RecipeRepository recipeRepository, ContainsRepository containsRepository, UnitRepository unitRepository) {
+            RecipeRepository recipeRepository, ContainsRepository containsRepository, UnitRepository unitRepository,
+            CustomerRepository customerRepository) {
         unitRepository.deleteAll();
         ingredientRepository.deleteAll();
         recipeRepository.deleteAll();
         containsRepository.deleteAll();
+        customerRepository.deleteAll();
+
+        customerRepository.save(new Customer("user", "user"));
 
         Unit litre = new Unit("Litre", "L");
         unitRepository.save(litre);
