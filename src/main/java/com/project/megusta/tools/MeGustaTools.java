@@ -15,6 +15,7 @@ public class MeGustaTools {
         customerRepository.deleteAll();
 
         customerRepository.save(new Customer("user", "user"));
+        customerRepository.save(new Customer("admin", "admin"));
 
         Unit litre = new Unit("Litre", "L");
         unitRepository.save(litre);
@@ -44,6 +45,11 @@ public class MeGustaTools {
         Ingredient oliveOil = new Ingredient("Olive Oil");
         Ingredient butter = new Ingredient("Butter");
         Ingredient bacon = new Ingredient("Bacon");
+        Ingredient chicken = new Ingredient("Chicken");
+        Ingredient tomato = new Ingredient("Tomato");
+        Ingredient mince = new Ingredient("Minced meat");
+        Ingredient redWine = new Ingredient("Red Wine");
+        Ingredient oregano = new Ingredient("Oregano");
 
         ingredientRepository.save(garlic);
         ingredientRepository.save(salt);
@@ -57,6 +63,11 @@ public class MeGustaTools {
         ingredientRepository.save(oliveOil);
         ingredientRepository.save(butter);
         ingredientRepository.save(bacon);
+        ingredientRepository.save(chicken);
+        ingredientRepository.save(tomato);
+        ingredientRepository.save(mince);
+        ingredientRepository.save(redWine);
+        ingredientRepository.save(oregano);
 
         // Persisting the recipe "Pesto Pasta"
         Recipe pestoPasta = new Recipe("Pesto Pasta");
@@ -81,6 +92,20 @@ public class MeGustaTools {
         carbonara.addContent(butter, 200, gram);
 
         recipeRepository.save(carbonara);
+
+        // Persisting recipe bolognese
+        Recipe bolognese = new Recipe("Ragu alla Bolognese");
+        bolognese.addContent(mince, 300, gram);
+        bolognese.addContent(tomato, 2, piece);
+        bolognese.addContent(onion, 2, piece);
+        bolognese.addContent(salt, 3, tablespoon);
+        bolognese.addContent(pepper, 3, tablespoon);
+        bolognese.addContent(redWine, 1.5, cup);
+        bolognese.addContent(oliveOil, 2, tablespoon);
+        bolognese.addContent(garlic, 2, piece);
+        bolognese.addContent(oregano, 1, tablespoon);
+
+        recipeRepository.save(bolognese);
 
     }
 }
