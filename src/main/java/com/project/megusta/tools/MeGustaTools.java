@@ -50,6 +50,8 @@ public class MeGustaTools {
         Ingredient mince = new Ingredient("Minced meat");
         Ingredient redWine = new Ingredient("Red Wine");
         Ingredient oregano = new Ingredient("Oregano");
+        Ingredient bread = new Ingredient("Loaf of Bread");
+        Ingredient parsley = new Ingredient("Parsley");
 
         ingredientRepository.save(garlic);
         ingredientRepository.save(salt);
@@ -68,6 +70,8 @@ public class MeGustaTools {
         ingredientRepository.save(mince);
         ingredientRepository.save(redWine);
         ingredientRepository.save(oregano);
+        ingredientRepository.save(bread);
+        ingredientRepository.save(parsley);
 
         // Persisting the recipe "Pesto Pasta"
         Recipe pestoPasta = new Recipe("Pesto Pasta");
@@ -95,6 +99,7 @@ public class MeGustaTools {
 
         // Persisting recipe bolognese
         Recipe bolognese = new Recipe("Ragu alla Bolognese");
+        recipeRepository.save(bolognese);
         bolognese.addContent(mince, 300, gram);
         bolognese.addContent(tomato, 2, piece);
         bolognese.addContent(onion, 2, piece);
@@ -106,6 +111,16 @@ public class MeGustaTools {
         bolognese.addContent(oregano, 1, tablespoon);
 
         recipeRepository.save(bolognese);
+
+        // Persisting recipe garlic bread
+        Recipe garlicBread = new Recipe("Garlic Bread");
+        recipeRepository.save(garlicBread);
+        garlicBread.addContent(bread, 1, piece);
+        garlicBread.addContent(garlic, 4, piece);
+        garlicBread.addContent(butter, 200, gram);
+        garlicBread.addContent(parsley, 50, gram);
+
+        recipeRepository.save(garlicBread);
 
     }
 }
