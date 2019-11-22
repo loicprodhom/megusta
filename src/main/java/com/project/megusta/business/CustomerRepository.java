@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CustomerRepository extends CrudRepository<Customer, Long> {
 
-    @Query(value = "SELECT u FROM Customer u where u.userName = ?1 and u.password = ?2 ")
+    @Query(value = "SELECT u FROM Customer u where u.username = ?1 and u.password = ?2 ")
     Optional<Customer> login(String username, String password);
 
     Optional<Customer> findByToken(String token);
