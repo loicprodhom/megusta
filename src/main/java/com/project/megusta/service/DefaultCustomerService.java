@@ -1,6 +1,7 @@
 package com.project.megusta.service;
 
 import java.util.Optional;
+import java.util.UUID;
 
 import com.project.megusta.business.Customer;
 import com.project.megusta.business.CustomerRepository;
@@ -11,9 +12,7 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-import java.util.UUID;
-
+@Service("customerService")
 public class DefaultCustomerService implements CustomerService {
 
     @Autowired
