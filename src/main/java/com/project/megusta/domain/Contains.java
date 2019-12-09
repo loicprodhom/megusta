@@ -19,19 +19,19 @@ public class Contains {
 
     @ManyToOne
     @JsonIgnore
-    @JoinColumn(name = "ingredient_id")
+    @JoinColumn(columnDefinition = "integer", name = "ingredient_id")
     private Ingredient ingredient;
 
     @ManyToOne
     @JsonIgnore
-    @JoinColumn(name = "recipe_id")
+    @JoinColumn(columnDefinition = "integer", name = "recipe_id")
     private Recipe recipe;
 
     private double quantity;
 
     @ManyToOne
     @JsonIgnore
-    @JoinColumn(name = "unit_id")
+    @JoinColumn(columnDefinition = "integer", name = "unit_id")
     private Unit unit;
 
     public Contains() {
