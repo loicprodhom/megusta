@@ -8,8 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 public class Contains {
     @Id
@@ -18,19 +16,16 @@ public class Contains {
     private Long containsId;
 
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(nullable = true, columnDefinition = "integer", name = "ingredient_id")
     private Ingredient ingredient;
 
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(nullable = true, columnDefinition = "integer", name = "recipe_id")
     private Recipe recipe;
 
     private double quantity;
 
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(nullable = true, columnDefinition = "integer", name = "unit_id")
     private Unit unit;
 
