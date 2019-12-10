@@ -15,6 +15,11 @@ public class Contains {
     @Column(name = "contains_id")
     private Long containsId;
 
+    /*
+     * Found out that adding the @JsonIgnore annotation would completely prevent
+     * creation of new relations between entities
+     */
+
     @ManyToOne
     @JoinColumn(nullable = true, columnDefinition = "integer", name = "ingredient_id")
     private Ingredient ingredient;
