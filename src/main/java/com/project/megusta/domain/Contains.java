@@ -8,8 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 public class Contains {
     @Id
@@ -17,21 +15,23 @@ public class Contains {
     @Column(name = "contains_id")
     private Long containsId;
 
+    /*
+     * Found out that adding the @JsonIgnore annotation would completely prevent
+     * creation of new relations between entities
+     */
+
     @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "ingredient_id")
+    @JoinColumn(nullable = true, columnDefinition = "integer", name = "ingredient_id")
     private Ingredient ingredient;
 
     @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "recipe_id")
+    @JoinColumn(nullable = true, columnDefinition = "integer", name = "recipe_id")
     private Recipe recipe;
 
     private double quantity;
 
     @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "unit_id")
+    @JoinColumn(nullable = true, columnDefinition = "integer", name = "unit_id")
     private Unit unit;
 
     public Contains() {
